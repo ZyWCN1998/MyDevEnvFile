@@ -82,7 +82,7 @@ NeoVim 网站：[https://neovim.io/](https://neovim.io/)
 
 ### 使用配置文件
 
-在'~'目录下新建.config 文件夹，如果有的话则不需要新建，将本仓库中的 nvim 文件夹放置于'~/.config' 目录下即可。
+在\~目录下新建.config 文件夹，如果有的话则不需要新建，将本仓库中的 nvim 文件夹放置于\~ /.config 目录下即可。
 
 启动 nvim，使用命令:PackerSync 更新插件
 
