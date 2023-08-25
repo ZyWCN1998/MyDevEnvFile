@@ -161,7 +161,7 @@ lspconfig["emmet_ls"].setup({
 })
 
 -- configure lua server (with special settings)
-lspconfig["sumneko_lua"].setup({
+lspconfig["lua_ls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
   settings = { -- custom settings for lua
@@ -180,3 +180,12 @@ lspconfig["sumneko_lua"].setup({
     },
   },
 })
+
+local notify = vim.notify
+vim.notify = function(msg, ...)
+  if msg:match("warning: multiple different client offset_encodings") then
+    return
+  end
+
+  notify(msg, ...)
+end

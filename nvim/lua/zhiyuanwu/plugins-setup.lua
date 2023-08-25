@@ -103,6 +103,9 @@ return packer.startup(function(use)
   -- dash board
   use({ "glepnir/dashboard-nvim" })
 
+  -- theme catppuccin
+  use({ "catppuccin/nvim", as = "catppuccin" })
+
   if packer_bootstrap then
     require("packer").sync()
   end
