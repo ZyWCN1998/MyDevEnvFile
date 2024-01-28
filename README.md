@@ -44,6 +44,11 @@
   ```bash
   npm install -g tree-sitter-cli
   ```
+- **Xsel:** https://github.com/tmux-plugins/tmux-yank
+  ```bash
+  sudo apt-get install xsel # or xclip
+  ```
+
 - 将本仓库内容克隆到本地
 
 ## 1.2 Terminal 配置
