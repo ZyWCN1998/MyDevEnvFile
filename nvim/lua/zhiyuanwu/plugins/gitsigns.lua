@@ -1,8 +1,19 @@
--- import gitsigns plugin safely
-local setup, gitsigns = pcall(require, "gitsigns")
-if not setup then
-  return
-end
+return {
+	"lewis6991/gitsigns.nvim",
+	event = { "BufReadPre", "BufNewFile" },
+	--config = true,
 
--- configure/enable gitsigns
-gitsigns.setup()
+	config = function()
+		require("gitsigns").setup({
+			signs = {
+				add = { text = "┃" },
+				change = { text = "┃" },
+				delete = { text = "_" },
+				topdelete = { text = "▔" },
+				changedelete = { text = "┃" },
+				untracked = { text = "┃" },
+			},
+			current_line_blame = true,
+		})
+	end,
+}
