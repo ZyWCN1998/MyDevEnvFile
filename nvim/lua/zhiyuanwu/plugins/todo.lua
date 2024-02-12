@@ -1,6 +1,8 @@
 return {
 	"folke/todo-comments.nvim",
 	dependencies = { "nvim-lua/plenary.nvim" },
+	event = { "BufReadPre", "BufNewFile" },
+
 	config = function()
 		vim.keymap.set("n", "]t", function()
 			require("todo-comments").jump_next()
