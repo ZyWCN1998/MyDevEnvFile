@@ -1,7 +1,7 @@
 # 基于 Ubuntu 22.04 的命令行开发环境
 
 <aside>
-💡 本文配置基于josean-dev/dev-environment-files仓库修改而来，如果你觉得有帮助，请给他点赞
+💡 本文配置基于josean-dev/dev-environment-files仓库修改而来，如果你觉得有帮助，请别忘了也给他点赞
 
 </aside>
 
@@ -48,6 +48,11 @@
   ```bash
   sudo apt-get install xsel # or xclip
   ```
+- **Verilog&SystemVerilog**：使用SVLangserver作为.v和.sv文件的LSP，该LSP需要Verilator和Verible两个工具
+  ，请参阅以下安装方法安装二者，注意将二者安装在同一默认位置，或修改svlangserver配置指定安装目录。
+
+  https://veripool.org/guide/latest/
+  https://github.com/chipsalliance/verible
 
 - 将本仓库内容克隆到本地
 
@@ -65,6 +70,20 @@ OhMyZsh 网站：[https://ohmyz.sh/](https://ohmyz.sh/)
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+### 安装两个zsh插件
+
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+### 安装zsh主题powerlevel10k
+
+```bash
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
 将本仓库中.zshrc 文件放置于~目录下即可
@@ -89,7 +108,7 @@ NeoVim 网站：[https://neovim.io/](https://neovim.io/)
 
 在\~目录下新建.config 文件夹，如果有的话则不需要新建，将本仓库中的 nvim 文件夹放置于\~ /.config 目录下即可。
 
-启动 nvim，使用命令:PackerSync 更新插件
+启动 nvim，若Lazy没有自动弹出可以使用:Lazy命令打开，使用命令Shift S更新插件。
 
 ![Untitled](IMAGE/Untitled%201.png)
 
@@ -105,6 +124,12 @@ NeoVim 网站：[https://neovim.io/](https://neovim.io/)
 
 ```bash
 sudo apt-get install tmux
+```
+
+### 安装tmux plugin 管理器
+
+```bash
+https://github.com/tmux-plugins/tpm
 ```
 
 ### 使用配置文件
@@ -125,6 +150,6 @@ sudo apt-get install tmux
 
 # 3. 下一步工作
 
-- [ ] 缩短 Nvim 启动时间至 100ms 以内（目前为 250ms 左右）
-- [ ] 选定一个 DashBoard 图案
-- [ ] 将命令行以及部分语言的调试器集成进来
+- [x] 缩短 Nvim 启动时间至 100ms 以内,目前为 250ms 左右（CPU: 5800X)（2024.2.13使用lazy包管理器+懒加载方案实现）
+- [x] 选定一个 DashBoard 图案（2024.2.13使用alpha-nvim实现）
+- [x] 将命令行以及部分语言的调试器集成进来（2024.2.13使用toggle-term实现）
